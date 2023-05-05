@@ -1,0 +1,12 @@
+{
+  "short_name": "Chat",
+  "name": "Kyvex Chat",
+  "icons": [{
+    "src": "img/kyvexchat.png",
+    "type": "image/png",
+    "sizes": "256x256"
+  }],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#fafafa",
+  "theme_color": "#fafafa"
+}
