@@ -51,10 +51,10 @@ a {
   color: rgb(var(--text));
   text-decoration: none;
   border-bottom: 2px solid rgba(var(--text), 0.2);
-  transition: border-bottom 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
 
   &:hover {
-    border-bottom: 2px solid rgba(var(--text), 1);
+    border-bottom: 2px solid rgba(var(--secondary-hover-color), 1);
   }
 }
 
@@ -74,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.2s ease-in-out;
 
   &:hover {
-    text-decoration: underline wavy rgba(var(--text), 1);
+    text-decoration: underline wavy rgba(var(--secondary-hover-color), 1);
   }
 }
 
