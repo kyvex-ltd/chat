@@ -131,6 +131,36 @@ main {
   padding: 1em;
 }
 
+.cta {
+  background-color: rgb(var(--secondary-color));
+  border-radius: 1em;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.cta h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.cta p {
+  font-size: 1em;
+  font-weight: 400;
+}
+.cta a {
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  background-color: rgb(var(--tertiary-color));
+  border-radius: 1em;
+  border: 2px solid rgb(var(--secondary-color));
+  transition: 0.2s ease-in-out;
+}
+.cta a:hover {
+  background-color: rgb(var(--secondary-hover-color));
+}
+
 @media (max-width: 768px) {
   .hero {
     justify-content: flex-end;
