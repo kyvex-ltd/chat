@@ -3,7 +3,8 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    BeauTheBeau -- Lead developer -- BeauTheLlamaGod
+
 
 # THANKS
 
@@ -12,4 +13,4 @@
 # TECHNOLOGY COLOPHON
 
     CSS3, HTML5
-    Apache Server Configs, jQuery, Modernizr, Normalize.css
+    Apache Server Configs, Modernizr, Normalize.css
