@@ -29,7 +29,6 @@ body {
 }
 
 
-
 // Main Styles
 
 html, body {
@@ -104,6 +103,30 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.section {
+  background-color: rgb(var(--secondary-color));
+  border-radius: 1em;
+  padding: 1em;
+  text-align: center;
+
+  &:not(.features) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 1em;
+    font-weight: 400;
+  }
+}
+
 .link__row {
   display: flex;
   flex-direction: row;
@@ -114,8 +137,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .features {
-
-  // dynamic grid
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 1em;
@@ -155,15 +176,6 @@ main {
 }
 
 .cta {
-  background-color: rgb(var(--secondary-color));
-  border-radius: 1em;
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
   h2 {
     font-size: 1.5em;
     font-weight: 700;
@@ -209,8 +221,8 @@ nav {
 
 
   .nav__logo img {
-      height: 4em;
-      transition: 0.2s ease-in-out;
+    height: 4em;
+    transition: 0.2s ease-in-out;
   }
 
   .nav__links {
@@ -221,7 +233,7 @@ nav {
     gap: 1em;
   }
 
-  .nav__theme  {
+  .nav__theme {
     font-size: 2em;
     cursor: pointer;
     padding: 0.5em;
