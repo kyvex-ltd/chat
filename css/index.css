@@ -89,6 +89,27 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 5em;
 }
 
+.section {
+  background-color: rgb(var(--secondary-color));
+  border-radius: 1em;
+  padding: 1em;
+  text-align: center;
+}
+.section:not(.features) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.section p {
+  font-size: 1em;
+  font-weight: 400;
+}
+
 .link__row {
   display: flex;
   flex-direction: row;
@@ -133,16 +154,6 @@ main {
   min-height: 200vh;
 }
 
-.cta {
-  background-color: rgb(var(--secondary-color));
-  border-radius: 1em;
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 .cta h2 {
   font-size: 1.5em;
   font-weight: 700;
