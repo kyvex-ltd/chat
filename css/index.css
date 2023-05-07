@@ -23,6 +23,7 @@ body.light {
 
 * {
   box-sizing: border-box;
+  transition: a, color, background-color 1s;
 }
 
 html, body {

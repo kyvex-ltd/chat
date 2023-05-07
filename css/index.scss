@@ -14,7 +14,6 @@ body {
     --tertiary-color: 45, 47, 49;
     --text: 255, 255, 255;
   }
-
   &.light {
     --primary-color: 253, 253, 253;
     --secondary-color: 246, 248, 251;
@@ -26,6 +25,7 @@ body {
 
 * {
   box-sizing: border-box;
+  transition: a, color, background-color 1s;
 }
 
 
