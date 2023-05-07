@@ -21,13 +21,16 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/main.css">
+
+  <script src="https://unpkg.com/akar-icons-fonts"></script>
+
 </head>
 
 <body>
 
 <!-- Add your site or application content here -->
 
-<div class="hero">
+<div class="hero" id="hero">
   <h1>Welcome to Kyvex Chat</h1>
   <h2><span class="underline">Your</span> open source alternative to Discord</h2>
   <div class="link__row">
@@ -36,68 +39,84 @@
   </div>
 </div>
 
-<main>
+<nav id="nav" role="navigation">
+  <div class="nav__logo">
+    <a href="landing.html"><img src="img/kyvexchat.png" alt="Kyvex Chat logo"></a>
+  </div>
+  <div class="nav__links">
+    <a href="#features">Features</a>
+    <a href="#contributing">Contributing</a>
+    <a href="register.html" class="button">Register</a>
+    <a href="login.html" class="button">Login</a>
+  </div>
+
+  <div class="nav__theme">
+    <i tabindex="0" class="ai-sun-fill" id="theme-toggle"></i>
+  </div>
+</nav>
+
+<main id="features">
   <div class="cta">
     <h2>Ready to get started?</h2>
     <div class="link__row">
       <a href="register.html" class="button">Register now</a>
       <a href="login.html" class="button">Already a member? Login</a>
     </div>
+  </div>
+
+  <hr>
+
+  <div class="features">
+    <div class="feature">
+      <h3>Chat with friends</h3>
+      <p>With Kyvex Chat, you can easily chat with your friends and stay connected, no matter where you are in the
+        world.</p>
     </div>
 
-    <hr>
-
-    <div class="features" id="features">
-      <div class="feature">
-        <h3>Chat with friends</h3>
-        <p>With Kyvex Chat, you can easily chat with your friends and stay connected, no matter where you are in the
-          world.</p>
-      </div>
-
-      <div class="feature">
-        <h3>Stay private</h3>
-        <p>Kyvex Chat is designed with your privacy in mind. We never collect or sell your data, so you can chat with
-          confidence.</p>
-      </div>
-
-      <div class="feature">
-        <h3>Open source</h3>
-        <p>Our code is fully open source and available on <a href="https://github.com/kyvex-ltd/chat/">GitHub</a>, so
-          you
-          can see exactly how we're keeping your data secure.</p>
-      </div>
-
-      <div class="feature">
-        <h3>Customize your experience</h3>
-        <p>Kyvex Chat is highly customizable, allowing you to personalize your chat experience to suit your unique needs
-          and preferences.</p>
-      </div>
-
-      <div class="feature">
-        <h3>No hidden fees</h3>
-        <p>Kyvex Chat is 100% free, with no hidden fees or charges. We believe that everyone should have access to a
-          great
-          chat app, without having to pay for it.</p>
-      </div>
-
-      <div class="feature">
-        <h3>Cross-platform</h3>
-        <p>Our app works seamlessly across multiple platforms, including desktop and mobile devices, so you can stay
-          connected no matter where you are.</p>
-      </div>
+    <div class="feature">
+      <h3>Stay private</h3>
+      <p>Kyvex Chat is designed with your privacy in mind. We never collect or sell your data, so you can chat with
+        confidence.</p>
     </div>
 
-    <hr>
-
-    <div class="contributing" id="contributing">
-      <h2>Contributing</h2>
-      <p>Want to contribute to Kyvex Chat? We'd love to have you on board! Check out our <a
-        href="https://github.com/kyvex-ltd/chat/">GitHub</a> page for more information.</p>
+    <div class="feature">
+      <h3>Open source</h3>
+      <p>Our code is fully open source and available on <a href="https://github.com/kyvex-ltd/chat/">GitHub</a>, so
+        you
+        can see exactly how we're keeping your data secure.</p>
     </div>
+
+    <div class="feature">
+      <h3>Customize your experience</h3>
+      <p>Kyvex Chat is highly customizable, allowing you to personalize your chat experience to suit your unique needs
+        and preferences.</p>
+    </div>
+
+    <div class="feature">
+      <h3>No hidden fees</h3>
+      <p>Kyvex Chat is 100% free, with no hidden fees or charges. We believe that everyone should have access to a
+        great
+        chat app, without having to pay for it.</p>
+    </div>
+
+    <div class="feature">
+      <h3>Cross-platform</h3>
+      <p>Our app works seamlessly across multiple platforms, including desktop and mobile devices, so you can stay
+        connected no matter where you are.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="contributing" id="contributing">
+    <h2>Contributing</h2>
+    <p>Want to contribute to Kyvex Chat? We'd love to have you on board! Check out our <a
+      href="https://github.com/kyvex-ltd/chat/">GitHub</a> page for more information.</p>
+  </div>
 
 </main>
 
-<script src="js/main.js"></script>
+<script defer src="js/landing.js"></script>
 
 </body>
 
