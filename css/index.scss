@@ -14,6 +14,7 @@ body {
     --tertiary-color: 45, 47, 49;
     --text: 255, 255, 255;
   }
+
   &.light {
     --primary-color: 253, 253, 253;
     --secondary-color: 246, 248, 251;
@@ -28,10 +29,10 @@ body {
   transition: a, color, background-color 1s;
 }
 
-
 // Main Styles
 
-html, body {
+html,
+body {
   height: 100%;
   scroll-behavior: smooth;
 }
@@ -39,7 +40,7 @@ html, body {
 body {
   background-color: rgb(var(--primary-color));
   color: rgb(var(--text));
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -57,8 +58,13 @@ a {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   margin: 0;
   margin-block-start: 0;
@@ -109,6 +115,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 1em;
   padding: 1em;
   text-align: center;
+  margin-bottom: 1em;
 
   &:not(.features) {
     display: flex;
@@ -198,12 +205,10 @@ main {
     &:hover {
       background-color: rgb(var(--secondary-hover-color));
     }
-
   }
 }
 
 nav {
-
   position: fixed;
   top: -256px;
   left: 0;
@@ -216,7 +221,6 @@ nav {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-
 
   border-bottom: 2px solid rgb(var(--secondary-color));
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -248,7 +252,6 @@ nav {
       color: rgb(var(--secondary-hover-color));
     }
   }
-
 }
 
 // Media Queries
@@ -266,5 +269,4 @@ nav {
   nav i {
     font-size: 0.75em !important;
   }
-
 }
