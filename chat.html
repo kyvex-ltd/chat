@@ -1,0 +1,80 @@
+<!doctype html>
+<html class="no-js" lang="en-gb">
+
+<head>
+  <meta charset="utf-8">
+  <title>Community | Kyvex Chat</title>
+  <meta content="Your open source alternative to Discord" name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <meta content="Kyvex Chat" property="og:title">
+  <meta content="website" property="og:type">
+  <meta content="https://chat.kyvex.co.uk" property="og:url">
+  <meta content="img/kyvexchat.png" property="og:image">
+  <meta content="Your open source alternative to Discord. A revolutionary chat application that prioritizes user privacy and freedom."
+        property="og:description">
+  <meta content="#fafafa" name="theme-color">
+
+  <link href="humans.txt" rel="author" type="text/plain">
+  <link href="site.webmanifest" rel="manifest">
+  <link href="img/kyvexchat.png" rel="apple-touch-icon">
+  <link href="img/kyvexchat.png" rel="icon">
+
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/chat.css" rel="stylesheet">
+
+
+  <script src="https://unpkg.com/akar-icons-fonts"></script>
+  <script defer src="js/chat.js"></script>
+
+</head>
+
+<body>
+
+<div class="servers" id="communities__container">
+  <div class="overlay"></div>
+  <div class="server__row" id="community__view"></div>
+</div>
+
+<div class="main__view">
+  <div class="channel__view" id="channel__view">
+    <a class="item" href="#" id="show__communities">
+
+      <div class="channel__info">
+        <div class="channel__name"><p>Show Communities</p></div>
+        <div class="channel__desc"><p>Click here to show all communities</p></div>
+      </div>
+    </a>
+  </div>
+  <div class="chat__view" id="chat__view">
+
+    <div class="header">
+      <div class="channel__name"><p>General</p></div>
+      <div class="channel__desc"><p>general stuff</p></div>
+    </div>
+
+    <div class="messages">
+      <div class="message">
+        <div class="message__author">
+          <img alt="" class="message__avatar" src="img/cat.png">
+          <div class="message__user">
+            <div class="message__username">Example User</div>
+            <div class="message__timestamp">Today at 20:35</div>
+          </div>
+        </div>
+        <div class="message__content">
+          <p>example message</p>
+        </div>
+      </div>
+    </div>
+
+    <textarea class="input" placeholder="Message #channelName" type="text"></textarea>
+  </div>
+  <div class="user__view" id="user__view"></div>
+</div>
+
+</body>
+
+</html>

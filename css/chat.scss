@@ -1,0 +1,349 @@
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgb(var(--text));
+}
+
+:root {
+  --primary-color: 31, 31, 31;
+  --secondary-color: 40, 41, 42;
+  --secondary-hover-color: 2, 73, 118;
+  --tertiary-color: 45, 47, 49;
+  --text: 255, 255, 255;
+}
+
+body {
+  margin: 0;
+
+  padding: 1rem;
+  gap: 1rem;
+
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+
+  background-color: rgb(var(--primary-color));
+  color: rgb(var(--text));
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body, html {
+  scroll-behavior: smooth;
+}
+
+a, a:visited, a:hover, a:focus {
+  color: inherit;
+  text-decoration: none;
+  border: none;
+}
+
+.servers {
+
+  position: fixed;
+  top: -100%;
+  left: 0;
+  right: 0;
+
+  width: 100dvw;
+  height: 4rem;
+
+  z-index: 1000;
+
+  .server__row {
+
+    z-index: 1000;
+    width: 100%;
+    padding: 0.25rem 1rem;
+    display: inline-flex;
+    min-height: 4rem;
+    height: 4rem;
+    gap: 1rem;
+    transition: 0.2s ease-in-out;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background-color: rgba(var(--secondary-color), 0.25);
+
+    // blur other elements
+    backdrop-filter: blur(0.5rem);
+
+  }
+
+  .server {
+    flex: 0 0 auto;
+    width: 3.5em;
+    max-height: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: rgba(var(--tertiary-color), 1);
+    color: rgba(var(--text), 1);
+    padding-right: 0.5rem;
+    gap: 0.5rem;
+    border: none;
+    transition: 0.3s ease-in-out;
+
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+    }
+
+    .server__name {
+      white-space: nowrap;
+      transition: opacity 0.3s ease-in-out; // Adjust the transition timing as needed
+    }
+
+    img.server__icon {
+      border-radius: 0;
+      aspect-ratio: 1 / 1;
+      max-height: 56px;
+      width: auto;
+      background-color: rgba(var(--tertiary-color), 1);
+    }
+
+    &:hover, &:focus, &.active {
+      width: 15em;
+      background-color: rgba(var(--secondary-hover-color), 1);
+      transition: width 0.3s ease-in-out;
+
+
+      .server__name {
+        opacity: 1;
+      }
+    }
+
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100dvh;
+    width: 100dvw;
+    background-color: rgba(var(--primary-color), 0.5);
+    backdrop-filter: brightness(0.5) blur(8px);
+  }
+
+  &::-webkit-scrollbar {
+    height: 0;
+  }
+
+}
+
+.main__view {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.channel__view, .user__view {
+  width: 20%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: rgba(var(--tertiary-color), 1);
+
+  .item {
+
+    padding: 0.25rem 1rem;
+    display: inline-flex;
+    height: 4rem;
+    background-color: rgba(var(--secondary-color), 1);
+    animation: slideIn 0.5s ease-in-out;
+    transition: 0.2s ease-in-out;
+
+    .channel__name {
+      white-space: nowrap;
+      transition: opacity 0.3s ease-in-out; // Adjust the transition timing as needed
+    }
+
+    img.channel__icon {
+      border-radius: 0;
+      aspect-ratio: 1 / 1;
+      max-height: 56px;
+      width: auto;
+      background-color: rgba(var(--tertiary-color), 1);
+    }
+
+    &:hover, &:focus, &.active {
+      transition: 0.3s ease-in-out;
+    }
+
+    &:first-child {
+      border-radius: 1rem 1rem 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0 1rem 1rem;
+    }
+
+    &:hover, &:focus, &.active {
+      background-color: rgba(var(--secondary-hover-color), 1);
+    }
+
+  }
+}
+
+.chat__view {
+  width: 60%;
+  max-height: calc(100vh - 2rem);
+
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.25rem;
+
+
+  .header {
+    flex: 0 0 auto;
+    height: 5%;
+    background-color: rgba(var(--secondary-color), 1);
+    border-radius: 1rem 1rem 0.25rem 0.25rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 1rem;
+
+    .channel__name {
+      white-space: nowrap;
+      transition: opacity 0.3s ease-in-out; // Adjust the transition timing as needed
+    }
+
+    .channel__desc {
+      color: rgba(var(--text), 0.5);
+    }
+
+  }
+
+  .messages {
+    flex: 1;
+    padding: 0.25rem 1rem;
+
+    background-color: rgba(var(--secondary-color), 1);
+    border-radius: 0.25rem;
+    overflow-y: auto;
+
+    .message {
+
+      display: flex;
+      flex-direction: column;
+
+      .message__author {
+        display: flex;
+        flex-direction: row;
+        gap: 0.25rem;
+        align-items: center;
+
+        .message__avatar {
+          border-radius: 50%;
+          aspect-ratio: 1 / 1;
+          max-height: 48px;
+          width: auto;
+          background-color: rgba(var(--tertiary-color), 1);
+        }
+
+        .message__user {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+        }
+
+        .message__username {
+          font-weight: bold;
+        }
+
+        .message__timestamp {
+          color: rgba(var(--text), 0.5);
+          font-size: 0.75rem;
+        }
+
+
+      }
+
+      .message__content {
+        padding-left: calc(48px + 0.25rem);
+      }
+
+      border-bottom: 1px solid rgba(var(--text), 0.01);
+
+    }
+
+  }
+
+  .input {
+    flex: 0 0 auto;
+    min-height: 5%;
+    max-height: 10%;
+    height: auto;
+    background-color: rgba(var(--secondary-color), 1);
+    border-radius: 0.25rem 0.25rem 1rem 1rem;
+
+    width: 100%;
+    border: none;
+    color: rgba(var(--text), 1);
+    padding: 0.25rem 1rem;
+    font-size: 1rem;
+    resize: none;
+    transition: 0.2s ease-in-out;
+
+    &:focus, &:hover {
+      background-color: rgba(var(--secondary-hover-color), 1);
+    }
+  }
+}
+
+.user__view {
+  width: 20%;
+}
+
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+
+}
+
+
+// scroll
+::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(var(--secondary-color), 1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--secondary-hover-color), 0.5);
+  transition: 0.2s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--secondary-hover-color), 1);
+  transition: 0.2s ease-in-out;
+}
+
