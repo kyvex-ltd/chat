@@ -132,7 +132,7 @@ a, a:visited, a:hover, a:focus {
     height: 100dvh;
     width: 100dvw;
     background-color: rgba(var(--primary-color), 0.5);
-    backdrop-filter: brightness(0.5) blur(8px);
+    backdrop-filter: brightness(0.5);
   }
 
   &::-webkit-scrollbar {
