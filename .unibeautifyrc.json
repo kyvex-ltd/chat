@@ -1,0 +1,95 @@
+{
+  "HTML": {
+    "beautifiers": [
+      "Pretty Diff",
+      "JS-Beautify"
+    ],
+    "indent_size": 2,
+    "max_preserve_newlines": 1,
+    "wrap_line_length": 120,
+    "indent_style": "tab",
+    "quotes": "double",
+    "end_with_newline": true,
+    "preserve_newlines": false,
+    "brace_style": "none",
+    "indent_comments": true,
+    "force_indentation": false,
+    "indent_inner_html": true,
+    "indent_scripts": "normal",
+    "newline_before_tags": [],
+    "wrap_attributes": "auto"
+  },
+  "JSON": {
+    "beautifiers": [
+      "Prettier",
+      "Pretty Diff",
+      "JS-Beautify"
+    ],
+    "indent_size": 2,
+    "max_preserve_newlines": 1,
+    "indent_style": "tab",
+    "quotes": "double"
+  },
+  "CSS": {
+    "beautifiers": [
+      "Prettier",
+      "Pretty Diff",
+      "JS-Beautify",
+      "CSScomb"
+    ],
+    "indent_size": 2,
+    "max_preserve_newlines": 0,
+    "wrap_line_length": 120,
+    "indent_style": "tab",
+    "end_with_newline": false,
+    "pragma_insert": true,
+    "preserve_newlines": false,
+    "newline_between_rules": true,
+    "no_leading_zero": true
+  },
+  "SCSS": {
+    "beautifiers": [
+      "Prettier",
+      "Pretty Diff",
+      "CSScomb"
+    ],
+    "indent_size": 2,
+    "max_preserve_newlines": 2,
+    "wrap_line_length": 120,
+    "indent_style": "tab",
+    "quotes": "double",
+    "pragma_insert": true,
+    "newline_between_rules": true,
+    "no_leading_zero": true
+  },
+  "JavaScript": {
+    "beautifiers": [
+      "Prettier",
+      "Pretty Diff",
+      "JS-Beautify",
+      "ESLint"
+    ],
+    "indent_size": 2,
+    "max_preserve_newlines": 2,
+    "wrap_line_length": 120,
+    "pragma_insert": true,
+    "indent_style": "tab",
+    "quotes": "double",
+    "end_with_newline": true,
+    "preserve_newlines": false,
+    "brace_style": "collapse",
+    "indent_comments": true,
+    "align_assignments": true,
+    "arrow_parens": "always",
+    "break_chained_methods": true,
+    "comma_first": false,
+    "end_with_comma": true,
+    "end_with_semicolon": true,
+    "indent_chained_methods": true,
+    "jslint_happy": true,
+    "keep_array_indentation": true,
+    "object_curly_spacing": true,
+    "remove_trailing_whitespace": true,
+    "space_before_conditional": true
+  }
+}
