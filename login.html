@@ -1,0 +1,126 @@
+<!doctype html>
+<html class="no-js" lang="en-gb">
+
+<head>
+  <meta charset="utf-8">
+  <title>Login | Kyvex Chat</title>
+  <meta content="Login to Kyvex Chat, your open source alternative to Discord" name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+
+  <meta content="Kyvex Chat" property="og:title">
+  <meta content="website" property="og:type">
+  <meta content="https://kyvexchat.com" property="og:url">
+  <meta content="img/kyvexchat.png" property="og:image">
+  <meta
+    content="Login to Kyvex Chat, your open source alternative to Discord. A revolutionary chat application that prioritizes user privacy and freedom."
+    property="og:description">
+  <meta content="#fafafa" name="theme-color">
+
+  <link href="humans.txt" rel="author" type="text/plain">
+  <link href="site.webmanifest" rel="manifest">
+  <link href="img/kyvexchat.png" rel="apple-touch-icon">
+  <link href="img/kyvexchat.png" rel="icon">
+
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+
+  <script src="https://unpkg.com/akar-icons-fonts"></script>
+
+  <script>
+    function login(username, password) {
+
+      const
+        api_url = "https://api.chat.kyvex.co.uk", // for use in production
+        test_url = "http://localhost:3000";
+
+      // Create an object with the login credentials
+      let credentials = {
+        tag: username,
+        password: password
+      };
+
+      // Send the login request to the server
+      fetch(test_url + '/api/v1/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(credentials)
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.status.toString() === "200") {
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('tag', data.user.tag);
+            localStorage.setItem('username', data.user.displayName);
+            localStorage.setItem('id', data.user.id);
+            window.location.href = "chat.html";
+          } else alert(data.message);
+        })
+        .catch(error => {
+          console.log("An error occurred:", error);
+        });
+    }
+  </script>
+
+</head>
+
+<body>
+
+<div class="hero" id="hero">
+  <h1>Login to Kyvex Chat</h1>
+  <h2><span class="underline">Your</span> open source alternative to Discord</h2>
+  <div class="link__row">
+    <a class="button" href="#login">Login</a>
+    <a class="button" href="register.html">Not registered?</a>
+    <a class="button" href="index.html">Home</a>
+  </div>
+</div>
+
+<nav id="nav" role="navigation">
+  <div class="nav__logo">
+    <a href="index.html"><img alt="Kyvex Chat logo" src="img/kyvexchat.png"></a>
+  </div>
+  <div class="nav__links">
+    <a href="index.html#features">Features</a>
+    <a href="index.html#contributing">Contributing</a>
+    <a class="button" href="register.html">Register</a>
+    <a class="button" href="login.html">Login</a>
+  </div>
+
+  <div class="nav__theme">
+    <i class="ai-sun-fill" id="theme-toggle" tabindex="0"></i>
+  </div>
+</nav>
+
+<main>
+
+  <div class="section" id="login">
+
+    <h2>Login to Kyvex Chat</h2>
+
+    <form class="form" method="POST">
+      <div>
+        <label for="username">Username:</label>
+        <input id="username" name="username" required type="text">
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input id="password" name="password" required type="password">
+      </div>
+      <div>
+        <button onclick="login(document.getElementById('username').value, document.getElementById('password').value)"
+                type="button">
+          Login
+        </button>
+      </div>
+    </form>
+
+  </div>
+
+</main>
+
+</body>
+
+</html>
