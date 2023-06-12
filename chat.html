@@ -11,12 +11,12 @@
   <meta content="website" property="og:type">
   <meta content="https://chat.kyvex.co.uk" property="og:url">
   <meta content="img/kyvexchat.png" property="og:image">
-  <meta content="Your open source alternative to Discord. A revolutionary chat application that prioritizes user privacy and freedom."
-        property="og:description">
+  <meta
+    content="Your open source alternative to Discord. A revolutionary chat application that prioritizes user privacy and freedom."
+    property="og:description">
   <meta content="#fafafa" name="theme-color">
 
   <link href="humans.txt" rel="author" type="text/plain">
-  <link href="site.webmanifest" rel="manifest">
   <link href="img/kyvexchat.png" rel="apple-touch-icon">
   <link href="img/kyvexchat.png" rel="icon">
 
@@ -26,27 +26,113 @@
   <link href="css/chat.css" rel="stylesheet">
 
 
-  <script src="https://unpkg.com/akar-icons-fonts"></script>
-  <script defer src="js/chat.js"></script>
+  <!--  <script src="https://unpkg.com/akar-icons-fonts"></script>-->
+  <script defer src="js/chat.js" type="module"></script>
 
 </head>
 
 <body>
 
+<dialog id="dialog__create__community">
+  <form class="dialog__content" id="dialog__create__community__form">
+
+    <div class="form__row">
+      <label class="form__label" for="create__community__name">Community Name</label>
+      <input class="form__input" id="create__community__name" name="create__community__name"
+             placeholder="Community Name" required
+             type="text">
+    </div>
+
+    <div class="form__row">
+      <label class="form__label" for="create__community__description">Community Description</label>
+      <textarea class="form__input" id="create__community__description" name="create__community__description"
+                placeholder="Community Description"
+                required></textarea>
+    </div>
+
+    <div class="form__row">
+      <label class="form__label" for="create__community__icon">Community Icon</label>
+      <input class="form__input" id="create__community__icon" name="create__community__icon"
+             placeholder="Community Icon" required
+             type="file">
+    </div>
+
+    <div class="form__row">
+      <button class="button button--primary" id="create__community__submit" type="button">Create Community</button>
+      <button class="button button--secondary" id="create__community__cancel" onclick="document.getElementById('dialog__create__community').close();"
+              type="button"
+      >Cancel
+      </button>
+    </div>
+
+  </form>
+</dialog>
+<dialog id="dialog__create__channel">
+  <form class="dialog__content" id="dialog__create__channel__form">
+
+    <div class="form__row">
+      <label class="form__label" for="create__community__name">Community Name</label>
+      <input class="form__input" id="create__channel__name" name="create__community__name"
+             placeholder="Community Name" required
+             type="text">
+    </div>
+
+    <div class="form__row">
+      <label class="form__label" for="create__community__description">Community Description</label>
+      <textarea class="form__input" id="create__channel__description" name="create__community__description"
+                placeholder="Community Description"
+                required></textarea>
+    </div>
+
+    <div class="form__row">
+      <label class="form__label" for="create__community__icon">Community Icon</label>
+      <input class="form__input" id="create__channel__icon" name="create__community__icon"
+             placeholder="Community Icon" required
+             type="file">
+    </div>
+
+    <div class="form__row">
+      <button class="button button--primary" id="create__channel__submit" type="button">Create Community</button>
+      <button class="button button--secondary" id="create__channel__cancel" onclick="document.getElementById('dialog__create__channel').close();"
+              type="button"
+      >Cancel
+      </button>
+    </div>
+
+  </form>
+</dialog>
+
 <div class="servers" id="communities__container">
   <div class="overlay"></div>
-  <div class="server__row" id="community__view"></div>
+  <div class="server__row" id="community__view">
+    <a class="server" onclick="document.getElementById('dialog__create__community').showModal()" tabindex="0">
+      <img alt="Plus Icon | Create a new community" class="server__icon" src="img/add.png">
+      <span class="server__name">New community</span>
+    </a>
+  </div>
 </div>
 
 <div class="main__view">
-  <div class="channel__view" id="channel__view">
-    <a class="item" href="#" id="show__communities">
+  <div class="channel__view">
+    <div class="channel__view__section">
+      <a class="item" href="#" id="show__communities">
+        <div class="channel__info">
+          <div class="channel__name"><p>Show Communities</p></div>
+          <div class="channel__desc"><p>Click here to show all communities</p></div>
+        </div>
+      </a>
+      <a class="item" href="#">
+        <div class="channel__info">
+          <div class="channel__name"><p>Create channel</p></div>
+          <div class="channel__desc"><p>Click here to create a new channel</p></div>
+        </div>
+      </a>
+    </div>
+    <hr>
+    <div class="channel__view__section" id="channel__view">
 
-      <div class="channel__info">
-        <div class="channel__name"><p>Show Communities</p></div>
-        <div class="channel__desc"><p>Click here to show all communities</p></div>
-      </div>
-    </a>
+    </div>
+
   </div>
   <div class="chat__view" id="chat__view">
 

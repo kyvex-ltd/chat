@@ -17,7 +17,6 @@
   <meta content="#fafafa" name="theme-color">
 
   <link href="humans.txt" rel="author" type="text/plain">
-  <link href="site.webmanifest" rel="manifest">
   <link href="img/kyvexchat.png" rel="apple-touch-icon">
   <link href="img/kyvexchat.png" rel="icon">
 
@@ -49,18 +48,22 @@
         body: JSON.stringify(credentials)
       })
         .then(response => response.json())
-        .then(data => {
-          if (data.status.toString() === "200") {
-            localStorage.setItem('token', data.token);
-            localStorage.setItem('tag', data.user.tag);
-            localStorage.setItem('username', data.user.displayName);
-            localStorage.setItem('id', data.user.id);
-            window.location.href = "chat.html";
-          } else alert(data.message);
+        .then(function (response) {
+          console.log(response)
+          try {
+            // Save user object and token to local storage
+            localStorage.setItem('user', JSON.stringify(response.user));
+            localStorage.setItem('token', response.token);
+          } catch (e) {
+            return console.error(e);
+          }
+
+          // Redirect to chat page
+          window.location.href = "chat.html";
         })
-        .catch(error => {
-          console.log("An error occurred:", error);
-        });
+        .catch(error => console.error(error))
+        .finally(() => console.log('Login request sent')
+        );
     }
   </script>
 

@@ -2,7 +2,11 @@
   "name": "kyvexchat",
   "version": "0.0.1",
   "description": "An open source chat app",
-  "keywords": ["chat", "open source", "kyvex"],
+  "keywords": [
+    "chat",
+    "open source",
+    "kyvex"
+  ],
   "license": "GNU GPLv3",
   "author": "Kyvex Limited",
   "scripts": {
@@ -11,6 +15,7 @@
     "start": "npm run build && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
+  "dependencies": {
+    "bcrypt": "^5.1.0"
   }
 }
