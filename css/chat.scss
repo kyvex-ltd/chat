@@ -161,6 +161,7 @@ a, a:visited, a:hover, a:focus {
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 0.25rem;
   }
 
   .item {
@@ -168,6 +169,7 @@ a, a:visited, a:hover, a:focus {
     padding: 0.25rem 1rem;
     display: inline-flex;
     height: 4rem;
+    border-radius: 1rem;
     background-color: rgba(var(--secondary-color), 1);
     animation: slideIn 0.5s ease-in-out;
     transition: 0.2s ease-in-out;
@@ -195,11 +197,11 @@ a, a:visited, a:hover, a:focus {
     }
 
     &:first-child {
-      border-radius: 1rem 1rem 0 0;
+      border-radius: 1rem 1rem 0.25rem 0.25rem;
     }
 
     &:last-child {
-      border-radius: 0 0 1rem 1rem;
+      border-radius: 0.25rem 0.25rem 1rem 1rem;
     }
 
     &:hover, &:focus, &.active {
