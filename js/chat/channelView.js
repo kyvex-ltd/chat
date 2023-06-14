@@ -1,3 +1,5 @@
+import {emojis} from "./misc.js";
+
 export function refreshChannelView(channels, container) {
   channels.forEach((channel, i) => {
     setTimeout(() => {

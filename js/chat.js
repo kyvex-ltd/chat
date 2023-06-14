@@ -4,10 +4,7 @@ import {
   getQueryParam,
   emojis
 } from './chat/misc.js';
-import {refreshCommunityView} from './chat/communityView.js';
-import {refreshUserView} from './chat/userView.js';
-import {refreshChannelView} from './chat/channelView.js';
-import {toggleCommunityList} from './chat/communityList.js';
+import {hideCommunityList, toggleCommunityList} from './chat/communityList.js';
 import {createCommunity} from './chat/createCommunity.js';
 
 const community = getQueryParam("community");
@@ -26,19 +23,11 @@ window.addEventListener("storage", (event) => {
   }
 });
 
-const communities = [];
-const users = [];
-const channels = [];
+const communities = [], users = [], channels = [];
 
 const channelContainer = document.querySelector(`#channel__view`);
 const userContainer = document.querySelector(`#user__view`);
 const communityContainer = document.querySelector(`#community__view`);
-
-function refreshViews() {
-  refreshChannelView(channels, channelContainer);
-  refreshUserView(users, userContainer);
-  refreshCommunityView(communities, communityContainer);
-}
 
 const communitiesButton = document.querySelector(`#show__communities`);
 const communitiesContainer = document.querySelector(`#communities__container`);
@@ -89,21 +78,50 @@ try {
         })
           .then(res => res.json())
           .then(data => {
+
+            communities.push({
+              name: data.community.name,
+              // icon: data.community.icon,
+              id: data.community._id
+            });
+
+            const communityElement = document.createElement(`a`);
+            const communityIcon = document.createElement(`img`);
+            const communityName = document.createElement(`span`);
+
+            communityElement.classList.add(`server`);
+            communityIcon.classList.add(`server__icon`);
+            communityName.classList.add(`server__name`);
+
+            // Make the icon appropriate to be displayed in img.src
+            // transfer to blob
+
             const uint8Array = new Uint8Array(data.community.icon.data);
             const blob = new Blob([uint8Array], {type: "image/png"});
             const imgURI = URL.createObjectURL(blob);
 
-            communities.push([data.community.name, imgURI, data.community.id]);
-            refreshViews();
+
+            communityIcon.src = imgURI;
+            communityName.textContent = data.community.name;
+
+            communityElement.appendChild(communityIcon);
+            communityElement.appendChild(communityName);
+
+            communityContainer.appendChild(communityElement);
+
           });
       });
-      refreshViews();
     });
+
 } catch (err) {
   console.error(err);
+} finally {
+
 }
 
 const createCommunityButton = document.querySelector(`#create__community__submit`);
 const createCommunityContainer = document.querySelector(`#dialog__create__community`);
 
-createCommunityButton.addEventListener(`click`, createCommunity);
+createCommunityButton.addEventListener(`click`, () => {
+  createCommunity(test_url);
+});
