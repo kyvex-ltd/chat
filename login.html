@@ -26,45 +26,6 @@
 
   <script src="https://unpkg.com/akar-icons-fonts"></script>
 
-  <script type="module">
-
-    import {url} from './js/chat/misc.js';
-
-    function login(username, password) {
-
-      // Create an object with the login credentials
-      let credentials = {
-        tag: username,
-        password: password
-      };
-
-      // Send the login request to the server
-      fetch(url + '/api/v1/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(credentials)
-      })
-        .then(response => response.json())
-        .then(function (response) {
-          console.log(response)
-          try {
-            // Save user object and token to local storage
-            localStorage.setItem('user', JSON.stringify(response.user));
-            localStorage.setItem('token', response.token);
-          } catch (e) {
-            return console.error(e);
-          }
-
-          // Redirect to chat page
-          window.location.href = "chat.html";
-        })
-        .catch(error => console.error(error))
-        .finally(() => console.log('Login request sent')
-        );
-    }
-  </script>
 
 </head>
 
@@ -122,6 +83,49 @@
   </div>
 
 </main>
+
+<script>
+
+  const api_url = "https://api.chat.kyvex.co.uk:3000";
+  const test_url = "http://localhost:3000";
+  const url = api_url;
+
+  function login(username, password) {
+
+    // Create an object with the login credentials
+    let credentials = {
+      tag: username,
+      password: password
+    };
+
+    // Send the login request to the server
+    fetch(url + '/api/v1/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(credentials)
+    })
+      .then(response => response.json())
+      .then(function (response) {
+        console.log(response)
+        try {
+          // Save user object and token to local storage
+          localStorage.setItem('user', JSON.stringify(response.user));
+          localStorage.setItem('token', response.token);
+        } catch (e) {
+          return console.error(e);
+        }
+
+        // Redirect to chat page
+        window.location.href = "chat.html";
+      })
+      .catch(error => console.error(error))
+      .finally(() => console.log('Login request sent')
+      );
+  }
+</script>
+
 
 </body>
 
