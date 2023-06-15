@@ -1,5 +1,6 @@
 export const api_url = "https://api.chat.kyvex.co.uk";
 export const test_url = "http://localhost:3000";
+export const url = api_url;
 
 export function getQueryParam(name) {
   return new URLSearchParams(window.location.search).get(name);

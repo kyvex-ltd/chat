@@ -35,7 +35,7 @@
 
 <div class="hero" id="hero">
   <h1>Welcome to Kyvex Chat</h1>
-  <h2><span class="underline">Your</span> open source alternative to Discord</h2>
+  <h2>Open source &#x2022; No hidden fees &#x2022; Privacy respecting</h2>
   <div class="link__row">
     <a href="#features" class="button">Learn more</a>
     <a href="#contributing" class="button">Contribute</a>
@@ -62,15 +62,18 @@
 
   <div class="section intro">
     <h2>What is Kyvex Chat?</h2>
-    <p>Kyvex Chat is a revolutionary chat application that prioritizes user privacy and freedom. Unlike many chat
-      apps,
-      Kyvex Chat is completely open source and free forever. With Kyvex Chat, you can easily connect with friends and
-      enjoy seamless communication without worrying about your data being sold to advertisers or collected by
-      third-party entities. Our platform is dedicated to providing a secure and private space for users to chat, share
-      files, and engage with each other in a fun and convenient way. With Kyvex Chat, you can experience the benefits
-      of
-      an innovative and user-friendly chat app that is free from hidden fees, data breaches, and invasive
-      surveillance.</p>
+    <p>A revolutionary, open-source chat app prioritizing user privacy. Connect with friends, enjoy seamless
+      communication, and safeguard your data. Experience secure, private chatting, file sharing, and a user-friendly
+      interface—free from hidden fees and invasive data collection.</p>
+    </p>
+  </div>
+
+  <div class="section cta">
+    <h2>Ready to get started?</h2>
+    <div class="link__row">
+      <a class="button" href="register.html"><span id="user-count">Try it free</span></a>
+      <a class="button" href="login.html">Login</a>
+    </div>
   </div>
 
   <div class="section">
@@ -119,14 +122,6 @@
     </div>
   </div>
 
-  <div class="section cta">
-    <h2>Ready to get started?</h2>
-    <div class="link__row">
-      <a class="button" href="register.html">Try it free</a>
-      <a href="login.html" class="button">Already a member? Login</a>
-    </div>
-  </div>
-
   <div class="section contributing" id="contributing">
     <h2>Contributing</h2>
     <p>Want to contribute to Kyvex Chat? We'd love to have you on board! Check out our <a
@@ -134,6 +129,34 @@
   </div>
 
 </main>
+
+<script type="module">
+
+  import {url} from './js/chat/misc.js';
+
+  // Get user count
+  function updateUsers() {
+
+    const userCount = document.getElementById('user-count');
+
+    try {
+      fetch(url + '/api/v1/other/getCommunityCount')
+        .then(response => response.json())
+        .then(data => {
+          userCount.innerHTML = `Join ${data.count} ${data.count === 1 ? 'user' : 'users'} free!`;
+          console.log(data)
+        });
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  // every 10 seconds
+  setInterval(updateUsers, 10000);
+  updateUsers()
+
+
+</script>
 
 </body>
 

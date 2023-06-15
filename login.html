@@ -26,12 +26,11 @@
 
   <script src="https://unpkg.com/akar-icons-fonts"></script>
 
-  <script>
-    function login(username, password) {
+  <script type="module">
 
-      const
-        api_url = "https://api.chat.kyvex.co.uk", // for use in production
-        test_url = "http://localhost:3000";
+    import {url} from './js/chat/misc.js';
+
+    function login(username, password) {
 
       // Create an object with the login credentials
       let credentials = {
@@ -40,7 +39,7 @@
       };
 
       // Send the login request to the server
-      fetch(test_url + '/api/v1/auth/login', {
+      fetch(url + '/api/v1/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

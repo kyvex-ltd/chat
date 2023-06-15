@@ -27,12 +27,11 @@
 
   <script src="https://unpkg.com/akar-icons-fonts"></script>
 
-  <script>
-    function register(displayName, username, password, email) {
+  <script type="module">
 
-      const
-        api_url = "https://api.chat.kyvex.co.uk", // for use in production
-        test_url = "http://localhost:3000";
+    import {url} from './js/chat/misc.js';
+
+    function register(displayName, username, password, email) {
 
       // Create an object with the registration data
       let userData = {
@@ -43,7 +42,7 @@
       };
 
       // Send the registration request to the server
-      fetch(test_url + '/api/v1/users/register', {
+      fetch(url + '/api/v1/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
