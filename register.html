@@ -27,9 +27,12 @@
 
   <script src="https://unpkg.com/akar-icons-fonts"></script>
 
-  <script type="module">
+  <script>
 
-    import {url} from './js/chat/misc.js';
+    const api_url = "https://144.21.50.86:3000";
+    const test_url = "http://localhost:3000";
+    const url = api_url;
+
 
     function register(displayName, username, password, email) {
 
@@ -41,6 +44,7 @@
         email: email
       };
 
+      console.log("sent")
       // Send the registration request to the server
       fetch(url + '/api/v1/users/register', {
         method: 'POST',
@@ -57,7 +61,9 @@
           } else alert(data.message);
         })
         .catch(error => {
-          console.log("An error occurred:", error);
+          console.log("An error occurred:");
+          console.error(error);
+
         });
     }
   </script>
