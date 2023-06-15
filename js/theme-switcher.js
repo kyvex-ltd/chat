@@ -7,7 +7,6 @@ function toggleTheme() {
     BODY.classList.remove("dark");
     BODY.classList.add("light");
     THEME_ICON.classList.replace("ai-moon-fill", "ai-sun-fill");
-
   } else {
     THEME = "dark";
     BODY.classList.remove("light");

@@ -17,7 +17,6 @@
   <meta content="#fafafa" name="theme-color">
 
   <link href="humans.txt" rel="author" type="text/plain">
-  <link href="site.webmanifest" rel="manifest">
   <link href="img/kyvexchat.png" rel="apple-touch-icon">
   <link href="img/kyvexchat.png" rel="icon">
 
@@ -27,12 +26,11 @@
 
   <script src="https://unpkg.com/akar-icons-fonts"></script>
 
-  <script>
-    function login(username, password) {
+  <script type="module">
 
-      const
-        api_url = "https://api.chat.kyvex.co.uk", // for use in production
-        test_url = "http://localhost:3000";
+    import {url} from './js/chat/misc.js';
+
+    function login(username, password) {
 
       // Create an object with the login credentials
       let credentials = {
@@ -41,7 +39,7 @@
       };
 
       // Send the login request to the server
-      fetch(test_url + '/api/v1/auth/login', {
+      fetch(url + '/api/v1/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -49,18 +47,22 @@
         body: JSON.stringify(credentials)
       })
         .then(response => response.json())
-        .then(data => {
-          if (data.status.toString() === "200") {
-            localStorage.setItem('token', data.token);
-            localStorage.setItem('tag', data.user.tag);
-            localStorage.setItem('username', data.user.displayName);
-            localStorage.setItem('id', data.user.id);
-            window.location.href = "chat.html";
-          } else alert(data.message);
+        .then(function (response) {
+          console.log(response)
+          try {
+            // Save user object and token to local storage
+            localStorage.setItem('user', JSON.stringify(response.user));
+            localStorage.setItem('token', response.token);
+          } catch (e) {
+            return console.error(e);
+          }
+
+          // Redirect to chat page
+          window.location.href = "chat.html";
         })
-        .catch(error => {
-          console.log("An error occurred:", error);
-        });
+        .catch(error => console.error(error))
+        .finally(() => console.log('Login request sent')
+        );
     }
   </script>
 

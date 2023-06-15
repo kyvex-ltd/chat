@@ -1,4 +1,5 @@
 :root {
+  --backdrop-filter: blur(0.5);
   --primary-color: 31, 31, 31;
   --secondary-color: 40, 41, 42;
   --secondary-hover-color: 2, 73, 118;
@@ -254,14 +255,25 @@ nav {
   }
 }
 
-// form
 
 form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  text-align: left;
   gap: 1em;
+
+  width: 100%;
+
+  .form__row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1em;
+    width: 100%;
+  }
 
   input,
   textarea {
@@ -296,6 +308,82 @@ form {
       background-color: rgb(var(--secondary-hover-color));
     }
   }
+}
+
+
+dialog {
+
+  width: 20vw;
+  min-height: 20vh;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  background-color: rgba(var(--primary-color), 0.8);
+  border-radius: 1em;
+
+  .close {
+    position: absolute;
+    top: -2em;
+    right: 1em;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      color: rgb(var(--secondary-hover-color));
+    }
+  }
+
+  .dialog__content {
+    padding: 1em;
+    border-radius: 1em;
+    text-align: center;
+    transition: 0.2s ease-in-out;
+
+    h2 {
+      font-size: 1.5em;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1em;
+      font-weight: 400;
+    }
+
+    button {
+      margin-top: 1em;
+      padding: 0.5em 1em;
+      background-color: rgb(var(--tertiary-color));
+      border-radius: 1em;
+      border: 2px solid rgb(var(--secondary-color));
+      color: rgb(var(--text));
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+
+      &:hover {
+        background-color: rgb(var(--secondary-hover-color));
+      }
+    }
+  }
+
+  // blur bg
+  &::backdrop {
+    background-color: rgba(var(--primary-color), 0.8);
+    backdrop-filter: blur(10px);
+  }
+
+  // if open
+  &[open] {
+    display: flex;
+  }
+
+  // if closed
+  &[open="false"] {
+    display: none;
+  }
+
 }
 
 // Media Queries
