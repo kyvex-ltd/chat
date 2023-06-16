@@ -65,7 +65,6 @@
     <p>A revolutionary, open-source chat app prioritizing user privacy. Connect with friends, enjoy seamless
       communication, and safeguard your data. Experience secure, private chatting, file sharing, and a user-friendly
       interface—free from hidden fees and invasive data collection.</p>
-    </p>
   </div>
 
   <div class="section cta">
@@ -140,11 +139,10 @@
     const userCount = document.getElementById('user-count');
 
     try {
-      fetch(url + '/api/v1/other/getCommunityCount')
+      fetch(url + '/api/v1/other/getUserCount')
         .then(response => response.json())
         .then(data => {
           userCount.innerHTML = `Join ${data.count} ${data.count === 1 ? 'user' : 'users'} free!`;
-          console.log(data)
         });
     } catch (e) {
       console.error(e);
