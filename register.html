@@ -26,47 +26,8 @@
   <link href="css/main.css" rel="stylesheet">
 
   <script src="https://unpkg.com/akar-icons-fonts"></script>
+  <script defer src="js/auth/register.js" type="module"></script>
 
-  <script>
-
-    const api_url = "https://144.21.50.86:3000";
-    const test_url = "http://localhost:3000";
-    const url = api_url;
-
-
-    function register(displayName, username, password, email) {
-
-      // Create an object with the registration data
-      let userData = {
-        tag: username,
-        displayName: displayName,
-        password: password,
-        email: email
-      };
-
-      console.log("sent")
-      // Send the registration request to the server
-      fetch(url + '/api/v1/users/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userData)
-      })
-        .then(response => response.json())
-        .then(data => {
-          if (data.status.toString() === "200") {
-            localStorage.setItem('token', data.token);
-            window.location.href = "chat.html";
-          } else alert(data.message);
-        })
-        .catch(error => {
-          console.log("An error occurred:");
-          console.error(error);
-
-        });
-    }
-  </script>
 
 </head>
 
@@ -129,11 +90,7 @@
       </div>
 
       <div>
-        <button
-          onclick="register(document.getElementById('displayname').value, document.getElementById('username').value, document.getElementById('password').value, document.getElementById('email').value)"
-          type="button">
-          Register
-        </button>
+        <button type="button">Register</button>
       </div>
     </form>
 
