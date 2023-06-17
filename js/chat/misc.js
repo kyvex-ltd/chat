@@ -1,4 +1,4 @@
-export const api_url = "http://api.chat.kyvex.co.uk:3000";
+export const api_url = "https://api.chat.kyvex.co.uk:3000";
 export const test_url = "http://localhost:3000";
 export const url = api_url;
 
