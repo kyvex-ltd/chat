@@ -10,6 +10,8 @@ function register(displayName, username, password, email) {
     email: email
   };
 
+  console.log(userData)
+
   console.log("sent")
   // Send the registration request to the server
   fetch(url + '/api/v1/users/register', {
@@ -21,10 +23,10 @@ function register(displayName, username, password, email) {
   })
     .then(response => response.json())
     .then(data => {
-      if (data.status.toString() === "200") {
-        localStorage.setItem('token', data.token);
-        window.location.href = "chat.html";
-      } else alert(data.message);
+      if (data.msg) return alert(`Error: ${data.msg}`);
+
+      localStorage.setItem('token', data.token);
+      window.location.href = "chat.html";
     })
     .catch(error => {
       console.log("An error occurred:");
