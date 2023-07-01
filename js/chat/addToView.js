@@ -23,3 +23,37 @@ export function addCommunity(community, container) {
   container.appendChild(communityElement);
 
 }
+
+export function addCategory(category, container) {
+
+  const categoryElement = document.createElement(`a`);
+  const categoryName = document.createElement(`span`);
+
+  categoryElement.classList.add(`server`);
+  categoryName.classList.add(`server__name`);
+
+  categoryElement.href = `?category=${category._id}`;
+  categoryName.textContent = category.name;
+
+  categoryElement.appendChild(categoryName);
+
+  container.appendChild(categoryElement);
+
+}
+
+export function addChannel(channel, container) {
+
+  const channelElement = document.createElement(`a`);
+  const channelName = document.createElement(`span`);
+
+  channelElement.classList.add(`server`);
+  channelName.classList.add(`server__name`);
+
+  channelElement.href = `?channel=${channel._id}`;
+  channelName.textContent = channel.name;
+
+  channelElement.appendChild(channelName);
+
+  container.appendChild(channelElement);
+
+}
