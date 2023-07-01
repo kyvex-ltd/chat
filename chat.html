@@ -8,6 +8,7 @@
   <meta content="width=device-width, initial-scale=1" name="viewport">
 
   <meta content="Kyvex Chat" property="og:title">
+  <meta content="Kyvex Chat" property="og:title">
   <meta content="website" property="og:type">
   <meta content="https://chat.kyvex.co.uk" property="og:url">
   <meta content="img/kyvexchat.png" property="og:image">
@@ -24,7 +25,6 @@
   <link href="css/index.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
   <link href="css/chat.css" rel="stylesheet">
-
 
   <!--  <script src="https://unpkg.com/akar-icons-fonts"></script>-->
   <script defer src="js/chat.js" type="module"></script>
@@ -71,31 +71,51 @@
   <form class="dialog__content" id="dialog__create__channel__form">
 
     <div class="form__row">
-      <label class="form__label" for="create__community__name">Community Name</label>
-      <input class="form__input" id="create__channel__name" name="create__community__name"
-             placeholder="Community Name" required
+      <label class="form__label" for="create__channel__name">Channel Name</label>
+      <input class="form__input" id="create__channel__name" name="create__channel__name"
+             placeholder="Channel Name" required
              type="text">
     </div>
 
     <div class="form__row">
-      <label class="form__label" for="create__community__description">Community Description</label>
-      <textarea class="form__input" id="create__channel__description" name="create__community__description"
-                placeholder="Community Description"
+      <label class="form__label" for="create__channel__description">Channel Description</label>
+      <textarea class="form__input" id="create__channel__description" name="create__channel__description"
+                placeholder="Channel Description"
                 required></textarea>
     </div>
 
     <div class="form__row">
-      <label class="form__label" for="create__community__icon">Community Icon</label>
-      <input class="form__input" id="create__channel__icon" name="create__community__icon"
-             placeholder="Community Icon" required
-             type="file">
+      <button class="button button--primary" id="create__channel__submit" type="button">Create Channel</button>
+      <button class="button button--secondary" id="create__channel__cancel"
+              onclick="document.getElementById('dialog__create__channel').close();"
+              type="button">Cancel
+      </button>
+    </div>
+
+  </form>
+</dialog>
+<dialog id="dialog__create__category">
+  <form class="dialog__content" id="dialog__create__category__form">
+
+    <div class="form__row">
+      <label class="form__label" for="create__category__name">Category Name</label>
+      <input class="form__input" id="create__category__name" name="create__category__name"
+             placeholder="Category Name" required
+             type="text">
     </div>
 
     <div class="form__row">
-      <button class="button button--primary" id="create__channel__submit" type="button">Create Community</button>
-      <button class="button button--secondary" id="create__channel__cancel" onclick="document.getElementById('dialog__create__channel').close();"
-              type="button"
-      >Cancel
+      <label class="form__label" for="create__category__description">Category Description</label>
+      <textarea class="form__input" id="create__category__description" name="create__category__description"
+                placeholder="Category Description"
+                required></textarea>
+    </div>
+
+    <div class="form__row">
+      <button class="button button--primary" id="create__category__submit" type="button">Create Category</button>
+      <button class="button button--secondary" id="create__category__cancel"
+              onclick="document.getElementById('dialog__create__category').close();"
+              type="button">Cancel
       </button>
     </div>
 
@@ -118,29 +138,37 @@
       <a class="item" href="#" id="show__communities">
         <div class="channel__info">
           <div class="channel__name"><p>Show Communities</p></div>
-          <div class="channel__desc"><p>Click here to show all communities</p></div>
+          <div class="channel__desc"><p>Show Communities</p></div>
         </div>
       </a>
-      <a class="item" href="#">
+      <a class="item accordion" tabindex="0">
         <div class="channel__info">
-          <div class="channel__name"><p>Create channel</p></div>
-          <div class="channel__desc"><p>Click here to create a new channel</p></div>
+          <div class="channel__name"><p>Manage Community</p></div>
+          <div class="channel__desc"><p>Expand Community settings</p></div>
+        </div>
+
+        <div class="accordion__content">
+          <button class="button button--primary" id="create__channel"
+                  onclick="alert(`501: This feature is not yet implemented`)"
+                  type="button">Create Channel
+          </button>
+
+          <button class="button button--primary" id="create__category"
+                  onclick="alert(`501: This feature is not yet implemented`)"
+                  type="button">Create Category
+          </button>
         </div>
       </a>
+
     </div>
     <hr>
-    <div class="channel__view__section" id="channel__view">
-
-    </div>
-
+    <div class="channel__view__section" id="channel__view"></div>
   </div>
   <div class="chat__view" id="chat__view">
-
     <div class="header">
       <div class="channel__name"><p>General</p></div>
       <div class="channel__desc"><p>general stuff</p></div>
     </div>
-
     <div class="messages">
       <div class="message">
         <div class="message__author">
@@ -155,7 +183,6 @@
         </div>
       </div>
     </div>
-
     <textarea class="input" placeholder="Message #channelName" type="text"></textarea>
   </div>
   <div class="user__view" id="user__view"></div>

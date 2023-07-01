@@ -149,8 +149,6 @@ a, a:visited, a:hover, a:focus {
 
 .channel__view, .user__view {
   width: 20%;
-
-
   gap: 0.25rem;
   padding: 0.25rem;
   overflow: hidden;
@@ -162,52 +160,6 @@ a, a:visited, a:hover, a:focus {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-  }
-
-  .item {
-
-    padding: 0.25rem 1rem;
-    display: inline-flex;
-    height: 4rem;
-    border-radius: 1rem;
-    background-color: rgba(var(--secondary-color), 1);
-    animation: slideIn 0.5s ease-in-out;
-    transition: 0.2s ease-in-out;
-
-    .channel__name {
-      white-space: nowrap;
-      font-weight: 1000;
-      transition: opacity 0.3s ease-in-out;
-    }
-
-    .channel__desc p {
-      color: rgba(var(--text), 0.75);
-    }
-
-    img.channel__icon {
-      border-radius: 0;
-      aspect-ratio: 1 / 1;
-      max-height: 56px;
-      width: auto;
-      background-color: rgba(var(--tertiary-color), 1);
-    }
-
-    &:hover, &:focus, &.active {
-      transition: 0.3s ease-in-out;
-    }
-
-    &:first-child {
-      border-radius: 1rem 1rem 0.25rem 0.25rem;
-    }
-
-    &:last-child {
-      border-radius: 0.25rem 0.25rem 1rem 1rem;
-    }
-
-    &:hover, &:focus, &.active {
-      background-color: rgba(var(--secondary-hover-color), 1);
-    }
-
   }
 }
 
@@ -326,6 +278,112 @@ a, a:visited, a:hover, a:focus {
   width: 20%;
 }
 
+.item {
+
+  padding: 0.25rem 1rem;
+  display: inline-flex;
+  height: 4rem;
+  border-radius: 1rem;
+  background-color: rgba(var(--secondary-color), 1);
+  animation: slideIn 0.5s ease-in-out;
+  transition: 0.2s ease-in-out;
+
+  .channel__name {
+    white-space: nowrap;
+    font-weight: 1000;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .channel__desc p {
+    color: rgba(var(--text), 0.75);
+  }
+
+  img.channel__icon {
+    border-radius: 0;
+    aspect-ratio: 1 / 1;
+    max-height: 56px;
+    width: auto;
+    background-color: rgba(var(--tertiary-color), 1);
+  }
+
+  &:hover, &:focus, &.active {
+    transition: 0.3s ease-in-out;
+  }
+
+  &:first-child {
+    border-radius: 1rem 1rem 0.25rem 0.25rem;
+  }
+
+  &:last-child {
+    border-radius: 0.25rem 0.25rem 1rem 1rem;
+  }
+
+  &:hover, &:focus, &.active {
+    background-color: rgba(var(--secondary-hover-color), 1);
+  }
+
+}
+
+button {
+  background-color: rgba(var(--secondary-color), 1);
+  color: rgba(var(--text), 1);
+  padding: 0.25rem 1rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  text-align: left;
+  border: 1px solid rgba(var(--text), 0.1);
+  transition: 0.2s ease-in-out;
+
+  &:hover, &:focus {
+    background-color: rgba(var(--secondary-hover-color), 1);
+    transition: 0.3s ease-in-out;
+  }
+
+  &:first-child {
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 1rem 1rem;
+  }
+
+  &:first-child:last-child {
+    border-radius: 1rem;
+  }
+}
+
+.item.accordion {
+
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  user-select: none;
+
+  .accordion__content {
+    overflow: hidden;
+    flex-direction: column;
+    padding: 0.25rem 0;
+    max-height: 0;
+
+    button {
+      width: 100%;
+    }
+
+  }
+
+  &[data-expanded="true"] {
+    .accordion__content {
+      max-height: 500px; // Or a suitable finite max-height
+    }
+  }
+
+  &[data-expanded="false"] {
+    .accordion__content {
+      max-height: 0;
+    }
+  }
+}
 
 @keyframes slideIn {
   0% {

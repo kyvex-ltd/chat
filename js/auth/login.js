@@ -18,17 +18,17 @@ function login(username, password) {
   })
     .then(response => response.json())
     .then(function (response) {
-      console.log(response)
-      try {
-        // Save user object and token to local storage
-        localStorage.setItem('user', JSON.stringify(response.user));
+
+      // If the login was successful, store the token and user data in localStorage
+      if (response.status === 200) {
+        console.log(response)
         localStorage.setItem('token', response.token);
-      } catch (e) {
-        return console.error(e);
+        localStorage.setItem('user', JSON.stringify(response.user));
+        window.location.href = 'chat.html';
+      } else {
+        alert(response.message);
       }
 
-      // Redirect to chat page
-      window.location.href = "chat.html";
     })
     .catch(error => console.error(error))
     .finally(() => console.log('Login request sent')
