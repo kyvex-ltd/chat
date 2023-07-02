@@ -2,7 +2,7 @@ let url;
 const api_url = "https://api.chat.kyvex.co.uk:3000", test_url = "http://localhost:3000";
 if (window.location.hostname === "localhost") url = test_url;
 
-url = test_url;
+url = api_url;
 console.log(`Using ${url}!`);
 export {url};
 
