@@ -154,6 +154,7 @@ a, a:visited, a:hover, a:focus {
   overflow: hidden;
   border-radius: 1rem;
   background-color: rgba(var(--tertiary-color), 1);
+  transition: 0.2s;
 
   .channel__view__section {
     width: 100%;
@@ -164,13 +165,10 @@ a, a:visited, a:hover, a:focus {
 }
 
 .chat__view {
-  width: 60%;
+  flex: 1;
   max-height: calc(100vh - 2rem);
-
-
   display: flex;
   flex-direction: column;
-
   gap: 0.25rem;
 
 
@@ -383,6 +381,40 @@ button {
       max-height: 0;
     }
   }
+}
+
+.chat__home {
+
+
+  height: 100%;
+  width: 100%;
+  background-color: rgba(var(--tertiary-color), 1);
+  border-radius: 1rem;
+  color: rgba(var(--text), 1);
+
+  .chat__home__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 1rem;
+    background-color: rgba(var(--tertiary-color), 1);
+    color: rgba(var(--text), 1);
+
+    img {
+      border-radius: 1em;
+      aspect-ratio: 1 / 1;
+      max-height: 56px;
+      max-width: 56px;
+      background-color: rgba(var(--tertiary-color), 1);
+    }
+
+  }
+
 }
 
 @keyframes slideIn {
