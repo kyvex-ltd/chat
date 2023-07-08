@@ -132,6 +132,8 @@ a, a:visited, a:hover, a:focus {
   overflow: hidden;
   border-radius: 1rem;
   background-color: rgba(var(--tertiary-color), 1);
+  resize: horizontal;
+  transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .channel__view .channel__view__section, .user__view .channel__view__section {
   width: 100%;
@@ -141,7 +143,7 @@ a, a:visited, a:hover, a:focus {
 }
 
 .chat__view {
-  width: 60%;
+  flex: 1;
   max-height: calc(100vh - 2rem);
   display: flex;
   flex-direction: column;
@@ -310,6 +312,33 @@ button:first-child:last-child {
 }
 .item.accordion[data-expanded=false] .accordion__content {
   max-height: 0;
+}
+
+.chat__home {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(var(--tertiary-color), 1);
+  border-radius: 1rem;
+  color: rgba(var(--text), 1);
+}
+.chat__home .chat__home__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: rgba(var(--tertiary-color), 1);
+  color: rgba(var(--text), 1);
+}
+.chat__home .chat__home__content img {
+  border-radius: 1em;
+  aspect-ratio: 1/1;
+  max-height: 56px;
+  max-width: 56px;
+  background-color: rgba(var(--tertiary-color), 1);
 }
 
 @keyframes slideIn {

@@ -59,7 +59,8 @@
 
     <div class="form__row">
       <button class="button button--primary" id="create__community__submit" type="button">Create Community</button>
-      <button class="button button--secondary" id="create__community__cancel" onclick="document.getElementById('dialog__create__community').close();"
+      <button class="button button--secondary" id="create__community__cancel"
+              onclick="document.getElementById('dialog__create__community').close();"
               type="button"
       >Cancel
       </button>
@@ -133,7 +134,7 @@
 </div>
 
 <div class="main__view">
-  <div class="channel__view">
+  <div class="channel__view" id="channel__view__section">
     <div class="channel__view__section">
       <a class="item" href="#" id="show__communities">
         <div class="channel__info">
@@ -165,25 +166,39 @@
     <div class="channel__view__section" id="channel__view"></div>
   </div>
   <div class="chat__view" id="chat__view">
-    <div class="header">
-      <div class="channel__name"><p>General</p></div>
-      <div class="channel__desc"><p>general stuff</p></div>
-    </div>
-    <div class="messages">
-      <div class="message">
-        <div class="message__author">
-          <img alt="" class="message__avatar" src="img/cat.png">
-          <div class="message__user">
-            <div class="message__username">Example User</div>
-            <div class="message__timestamp">Today at 20:35</div>
+    <div style="display: none;">
+      <div class="header">
+        <div class="channel__name"><p>General</p></div>
+        <div class="channel__desc"><p>general stuff</p></div>
+      </div>
+      <div class="messages">
+        <div class="message">
+          <div class="message__author">
+            <img alt="" class="message__avatar" src="img/cat.png">
+            <div class="message__user">
+              <div class="message__username">Example User</div>
+              <div class="message__timestamp">Today at 20:35</div>
+            </div>
           </div>
-        </div>
-        <div class="message__content">
-          <p>example message</p>
+          <div class="message__content">
+            <p>example message</p>
+          </div>
         </div>
       </div>
     </div>
-    <textarea class="input" placeholder="Message #channelName" type="text"></textarea>
+
+    <!-- Shown if the user selects no channel, or there are no channels in the current community -->
+    <div class="chat__home" id="chat__home">
+      <div class="chat__home__content">
+        <img alt="Kyvex Logo" class="chat__home__logo" src="img/kyvexchat.png">
+        <h1 class="chat__home__title">Welcome to Kyvex Chat</h1>
+        <p class="chat__home__desc">Select a community, or <a href="#" onclick="document.getElementById('dialog__create__community').showModal()"
+                                                              style="text-decoration: underline;">create
+          a new one</a> to get started.</p>
+      </div>
+
+    </div>
+
   </div>
   <div class="user__view" id="user__view"></div>
 </div>

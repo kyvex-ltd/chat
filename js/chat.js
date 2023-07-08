@@ -51,9 +51,10 @@ setInterval(() => {
 
 const communities = [], users = [], channels = [];
 
-const channelContainer = document.querySelector(`#channel__view`);
-const userContainer = document.querySelector(`#user__view`);
 const communityContainer = document.querySelector(`#community__view`);
+const channelContainer = document.querySelector(`#channel__view__section`);
+const userContainer = document.querySelector(`#user__view`);
+const chatContainer = document.querySelector(`#chat__view`);
 
 const communitiesButton = document.querySelector(`#show__communities`);
 const communitiesContainer = document.querySelector(`#communities__container`);
@@ -69,9 +70,23 @@ document.addEventListener(`keydown`, (e) => {
   if (e.key === `Escape`) hideCommunityList(communitiesContainer);
 
   if (e.ctrlKey || e.metaKey) {
-    if (e.key === `k` || e.key === `l`) {
+    if (e.key === `k`) {
       e.preventDefault();
       toggleCommunityList(communitiesContainer);
+    }
+
+    if (e.key === `j`) {
+      e.preventDefault();
+      channelContainer.style.width = channelContainer.style.width === `0%` ? `20%` : `0%`;
+      channelContainer.style.padding = channelContainer.style.padding === `0` ? `0.25em` : `0`;
+      channelContainer.style.margin = channelContainer.style.margin === `0` ? `0.25em` : `0`;
+    }
+
+    if (e.key === `u`) {
+      e.preventDefault();
+      userContainer.style.width = userContainer.style.width === `0%` ? `20%` : `0%`;
+      userContainer.style.padding = userContainer.style.padding === `0` ? `0.25em` : `0`;
+      userContainer.style.margin = userContainer.style.margin === `0` ? `0.25em` : `0`;
     }
   }
 });
