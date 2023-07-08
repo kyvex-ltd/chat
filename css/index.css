@@ -218,7 +218,6 @@ nav .nav__theme {
   padding: 0.5em;
   transition: 0.2s ease-in-out;
 }
-
 nav .nav__theme:hover {
   color: rgb(var(--secondary-hover-color));
 }
@@ -232,7 +231,6 @@ form {
   gap: 1em;
   width: 100%;
 }
-
 form .form__row {
   display: flex;
   flex-direction: column;
@@ -241,7 +239,6 @@ form .form__row {
   gap: 1em;
   width: 100%;
 }
-
 form input,
 form textarea {
   width: 100%;
@@ -269,7 +266,6 @@ form button {
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
-
 form button:hover {
   background-color: rgb(var(--secondary-hover-color));
 }
@@ -284,7 +280,6 @@ dialog {
   background-color: rgba(var(--primary-color), 0.8);
   border-radius: 1em;
 }
-
 dialog .close {
   position: absolute;
   top: -2em;
@@ -292,28 +287,23 @@ dialog .close {
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
-
 dialog .close:hover {
   color: rgb(var(--secondary-hover-color));
 }
-
 dialog .dialog__content {
   padding: 1em;
   border-radius: 1em;
   text-align: center;
   transition: 0.2s ease-in-out;
 }
-
 dialog .dialog__content h2 {
   font-size: 1.5em;
   font-weight: 700;
 }
-
 dialog .dialog__content p {
   font-size: 1em;
   font-weight: 400;
 }
-
 dialog .dialog__content button {
   margin-top: 1em;
   padding: 0.5em 1em;
@@ -324,20 +314,16 @@ dialog .dialog__content button {
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
-
 dialog .dialog__content button:hover {
   background-color: rgb(var(--secondary-hover-color));
 }
-
 dialog::backdrop {
   background-color: rgba(var(--primary-color), 0.8);
   backdrop-filter: blur(10px);
 }
-
 dialog[open] {
   display: flex;
 }
-
 dialog[open=false] {
   display: none;
 }
@@ -347,11 +333,9 @@ dialog[open=false] {
     justify-content: flex-end;
     align-items: flex-start;
   }
-
   nav img {
     max-height: 2em;
   }
-
   nav i {
     font-size: 0.75em !important;
   }

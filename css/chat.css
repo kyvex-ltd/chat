@@ -132,7 +132,8 @@ a, a:visited, a:hover, a:focus {
   overflow: hidden;
   border-radius: 1rem;
   background-color: rgba(var(--tertiary-color), 1);
-  transition: 0.2s;
+  resize: horizontal;
+  transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .channel__view .channel__view__section, .user__view .channel__view__section {
   width: 100%;
